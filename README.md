@@ -1,5 +1,9 @@
 # Utilizing Encapsulation to Drive Abstraction in Python
 
+I have recently been using [boot.dev](https://www.boot.dev/) to broaden my knowledge of backend technologies. My background is primarily on the front-end so I wanted to explore concepts that I had heard about, but never pursued. One of the concepts I am beginning to learn is Object Oriented Programming with python. While going through the OOP course on boot.dev, I was still struggling to comprehend the differences between a couple core concepts of OOP: abstraction and encapsulation. I knew whenever I would download an npm package, the owner was using abstraction to present a module to the world, but I never knew the _how_ or the _why_. This is my attempt to help solidify my understanding of abstraction and encapsulation and how they are used together based on the lessons from boot.dev.
+
+# OOP
+
 Object oriented-programming (OOP) is a programming paradigm that is designed to make organizing code more manageable and maintainable. As opposed to functional programming, which is what I was used to with javascript, OOP uses classes to model and organize data and behavior. A class is essentially a static model that we can create to help group how we handle data within it. A class can be instantiated which creates an object reference. Each object has all the internal tools of a class, including its attributes (the data itself) and methods (how we want the class to interact with the data). Let's take a look at how we would create a Human class with python
 
 ```python
@@ -84,6 +88,8 @@ print(bob.get_status())
 
 Phew, he's still alive! You may have noticed we didn't need to specify an argument when we called get_status, even though it has a self parameter. This is because self can be thought of as an implicit argument that will just reference the object.
 
+## Using encapsulation and abstraction together
+
 Our human is kinda boring right now. All we can do is get its name and life status. Let's add some internal coordinates and some methods to handle movement.
 
 ```python
@@ -160,8 +166,6 @@ class Human:
 
 	# rest of code
 ```
-
-## Using encapsulation and abstraction together
 
 We have everything in place now to create a sprint method. First let's check if we have enough stamina to sprint. If we do, we're gonna need to determine our direction and number of steps. For our purposes, we are just gonna double the number of steps in our sprint. Then we will need to decrease our stamina. We can implement the methods like so:
 
@@ -260,4 +264,4 @@ This is how we can utilize encapsulation to drive abstraction in Python. Now for
 
 Object-oriented programming offers a powerful paradigm for organizing code, focusing on classes to manage data. Encapsulation, the first key concept, involves controlling access to class properties. In Python, this is achieved through naming conventions and underscores. Recall how we were able to encapsulate the `__is_alive` attribute. On the other hand, abstraction, the second key concept, centers on distilling essential information while hiding implementation details. I hope this article was able to demonstrate how abstraction often complements encapsulation.
 
-I am not an expert here so if I made any mistakes, please reach out so I can continue learning. Feel free to use this code as a playground to enhance your knowledge and see how it could be improved.
+My goal is to continue documenting my progress so if I made any mistakes, please reach out so I can continue learning. Feel free to use this code as a playground to enhance your knowledge and see how it could be improved.
