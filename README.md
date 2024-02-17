@@ -1,20 +1,24 @@
 # Utilizing Encapsulation to Drive Abstraction in Python
 
-Object oriented-programming is a programming paradigm that is designed to make organizing code more manageable and maintainable. As opposed to functional programming, which is what I was used to with javascript, OOP uses classes to model and organize data and behavior. A class is essentially a static model that we can create to help group how we handle data within it. A class can be instantiated which creates an object reference. Each object has all the internal tools of a class, including its attributes (the data itself) and methods (how we want the class to interact with the data). Let's take a look at how we would create a Human class with python
+Object oriented-programming (OOP) is a programming paradigm that is designed to make organizing code more manageable and maintainable. As opposed to functional programming, which is what I was used to with javascript, OOP uses classes to model and organize data and behavior. A class is essentially a static model that we can create to help group how we handle data within it. A class can be instantiated which creates an object reference. Each object has all the internal tools of a class, including its attributes (the data itself) and methods (how we want the class to interact with the data). Let's take a look at how we would create a Human class with python
 
 ```python
 class Human:
-	def __init__(self, name): # our constructor method
-		self.name = name # we can now reference the name of each instance and modify it
-		self.is_alive = True # we have created an instance variable that we can reference as well
+	# Our constructor method
+	def __init__(self, name):
+		# We can reference the name of each instance by the parameter
+		# and set our attributes as such
+		self.name = name
+		self.is_alive = True # Instance variable
 
 bob = Human("Bob")
 ```
 
-Meet Bob! He was just born when we called `bob = Human("Bob")` and placed in a variable named bob. When we create an object from a class, if we want to to initialize it with data, we have to define a constructor function. `__init__` is a python method that is commonly used to set attributes to our instance. So when bob was created, he was initialized with a name and an `is_alive` variable. When dealing with classes in python, each instance of a class has an implicit argument (`self`) that references the object in memory. If we want to modify our object's data, we need to specify self as a parameter. So when we call `Human('Bob')`, we set our instance's name to the string `Bob` and create and set the instance variable `is_alive` to true. Here we are encapsulating our instance's name variable with the name being passed from the user. Encapsulation is the process of handling the visibility and accessibility of our class properties. Let's take a closer look.
+Meet Bob! He was just born when we called `bob = Human("Bob")` and placed in a variable named bob. When we create an object from a class, if we want to to initialize it with data, we have to define a constructor function. `__init__` is a python method that is commonly used to set attributes to our instance. So when bob was created, he was initialized with a name and an `is_alive` variable. When dealing with classes in python, each instance of a class has an implicit argument (`self`) that references the object in memory. If we want to modify our object's data, we need to specify self as a parameter. So when we call `Human('Bob')`, we set our instance's name to the string `Bob` and create and set the instance variable `is_alive` to true. Here we are encapsulating our instance's name variable with the name being passed from the user.
 
 ## Encapsulation
 
+Encapsulation is the process of handling the visibility and accessibility of our class properties. Let's take a closer look.
 Right now, we have our human and we can reference its internal properties like so:
 
 `print(bob.name)   # Bob`
@@ -59,6 +63,10 @@ Back to Bob, we have successfully encapsulated his life in our class, but what i
 ```python
 class Human:
 	# init method
+
+	# We are using abstraction to read our internal variable
+	# The user doesn't need to know the name of which variable we used to check the life status,
+	# we are only returning relevant information when this method is called
 	def get_status(self):
 		if self.__is_alive:
 			return "Alive"
@@ -66,7 +74,7 @@ class Human:
 			return "Dead"
 ```
 
-Now we can call this method to check the status of bob. Try to modify `bob.__is_alive` and then call the get_status method.
+Now we can call this method to check the status of bob. By abstracting our logic into a method, the user does not need to know how we are checking if our object is alive. However, if for some reason they do know our internal variable, we have successfully encapsulated it so it can only be changed within our class. Try to modify `bob.__is_alive` and then call the get_status method.
 
 ```python
 print(bob.get_status())
@@ -89,12 +97,12 @@ class Human:
 		self.__pos_y = pos_y
 		self.__steps = steps
 
-    # This hides the internal logic of how a 'move' operation is performed,
-    # and provides a single point of control over the object’s state.
+    # The following methods hide the internal logic of how a 'move' operation is performed,
+    # and provide a single point of control over the object’s state.
     # Instead of modifying the positions externally,
     # we abstract that logic into an internal method
     # that the user can call with their object e.g. bob.move_right()
-    # Calling this method makes the human 'move right',
+    # Calling this method makes the human 'move right'
     # without the user needing to understand or manage the object's internal details
 
 	def move_right(self):
