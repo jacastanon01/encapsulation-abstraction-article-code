@@ -4,7 +4,7 @@ I have recently been using [boot.dev](https://www.boot.dev/) to broaden my knowl
 
 # OOP
 
-Object oriented-programming (OOP) is a programming paradigm that is designed to make organizing code more manageable and maintainable. As opposed to functional programming, which is what I was used to with javascript, OOP uses classes to model and organize data and behavior. A class is essentially a static model that we can create to help group how we handle data within it. A class can be instantiated which creates an object reference. Each object has all the internal tools of a class, including its attributes (the data itself) and methods (how we want the class to interact with the data). Let's take a look at how we would create a Human class with python
+Object-oriented programming (OOP) is a programming paradigm that is designed to make organizing code more manageable and maintainable. As opposed to functional programming, which is what I was used to with javascript, OOP uses classes to model and organize data and behavior. A class is essentially a static model that we can create to help group how we handle data within it. A class can be instantiated which creates an object reference. Each object has all the internal tools of a class, including its attributes (the data itself) and methods (how we want the class to interact with the data). Let's take a look at how we would create a Human class with python
 
 ```python
 class Human:
