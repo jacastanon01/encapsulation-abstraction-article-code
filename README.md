@@ -16,12 +16,15 @@ Meet Bob! He was just born when we called `bob = Human("Bob")` and placed in a v
 ## Encapsulation
 
 Right now, we have our human and we can reference its internal properties like so:
+
 `print(bob.name)   # Bob`
 
 If we wanted to, we could also change their attributes:
+
 `bob.is_alive = False`
 
 Darn, RIP to Bob I guess. But fortunately we can still resurrect him:
+
 `bob.is_alive = True`
 
 Great! But playing with someone's life like that is not cool, man. Let's protect our fellow Human's life a bit more shall we?
