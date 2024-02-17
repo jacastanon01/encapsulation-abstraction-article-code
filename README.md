@@ -1,6 +1,6 @@
 # Utilizing Encapsulation to Drive Abstraction in Python
 
-Object oriented-programming is a programming paradigm that is designed to make organizing code more manageable and maintainable. As opposed to functional programming, which is what I was used to with javascript, OOP uses classes to model and organize data and behavior. A class is a essentially a static model that we can create to help group how we handle data within it. A class can be instantiated which creates an object reference. Each object has all the internal tools of a class, including its attributes (the data itself) and methods (how we want the class to interact with the data). Let's take a look at how we would create a Human class with python
+Object oriented-programming is a programming paradigm that is designed to make organizing code more manageable and maintainable. As opposed to functional programming, which is what I was used to with javascript, OOP uses classes to model and organize data and behavior. A class is essentially a static model that we can create to help group how we handle data within it. A class can be instantiated which creates an object reference. Each object has all the internal tools of a class, including its attributes (the data itself) and methods (how we want the class to interact with the data). Let's take a look at how we would create a Human class with python
 
 ```python
 class Human:
@@ -153,6 +153,8 @@ class Human:
 	# rest of code
 ```
 
+## Using encapsulation and abstraction together
+
 We have everything in place now to create a sprint method. First let's check if we have enough stamina to sprint. If we do, we're gonna need to determine our direction and number of steps. For our purposes, we are just gonna double the number of steps in our sprint. Then we will need to decrease our stamina. We can implement the methods like so:
 
 ```python
@@ -184,7 +186,7 @@ class Human:
         self.__use_sprint_stamina()
 ```
 
-Take a look at how we structured the logic in these methods, they all follow the same outline with the only difference being the coordinates being set. A lot of repeated code can be abstracted into a singular module that has an explicit purpose. If we wanted to refactor our sprint methods, how could we encapsulates this logic?
+Take a look at how we structured the logic in these methods, they all follow the same outline with the only difference being the coordinates being set. A lot of repeated code can be abstracted into a singular module that has an explicit purpose. If we wanted to refactor our sprint methods, how could we encapsulate this logic?
 
 Let's define a new method that holds the logic necessary for our human object to sprint
 
@@ -197,7 +199,7 @@ class Human:
 		self.__use_sprint_stamina()
 ```
 
-That's a good start, but now we are exerting stamina and not even moving!? This would be cool if we wanted the behavior to model a treadmill, but Bob wants to move from point A to point B, in double the steps. To reduce repeating ourselves let's use a for loop here
+That's a good start, but now we are exerting stamina and not even moving!? This would be cool if we wanted the behavior to model a treadmill, but Bob wants to move from point A to point B, in double the steps. To reduce repeating ourselves let's use a for-loop here
 
 ```python
 	# Internal method that combines the actions needed for any sprint
@@ -235,12 +237,16 @@ def __sprint(self, direction):
 	self.__use_sprint_stamina()
 ```
 
-Now that it's private, I'm not too worried about adding another parameter since we will have total control of what we pass. You can pass functions as parameters to be invoked at a later time so now we want to refactor our sprint methods to call `__sprint` with an argument of which direction method we want invoked in our for-loop. Fortunately, we have already defined a function to sprint right and left and so on. Now we can reduce the code to just call this method, but with a parameter to specify the direction.
+We have successfully encapsulated our abstracted code into a private method! First we recognized a pattern that could be re-used and moved that logic into a single function. Then we encapsulated that function for internal use only.
+
+Now that it's private, I'm not too worried about adding another parameter since we will have total control of what we pass. You can pass functions as parameters to be invoked at a later time so now we want to refactor our sprint methods to call `__sprint` with an argument of which move method we want invoked in our for-loop. Fortunately, we have already defined a function to sprint right and left and so on. Now we can reduce the code to just call this method, but with a parameter to specify the direction:
 
 ```python
 def sprint_right(self):
 	self.__sprint(self.move_right)
 ```
+
+This is how we can utilize encapsulation to drive abstraction in Python. Now for each sprint method, we are using abstraction by calling `__sprint` and not worrying about how we are moving faster and we are using encapsulation to hide our `__sprint` method from the user. Now to sprint right, you just need to call `sprint_right()` on your object and viola!
 
 ## Conclusion
 
