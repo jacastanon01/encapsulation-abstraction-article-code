@@ -13,7 +13,7 @@ bob = Human("Bob")
 
 Meet Bob! He was just born when we called `bob = Human("Bob")` and placed in a variable named bob. When we create an object from a class, if we want to to initialize it with data, we have to define a constructor function. `__init__` is a python method that is commonly used to set attributes to our instance. So when bob was created, he was initialized with a name and an `is_alive` variable. When dealing with classes in python, each instance of a class has an implicit argument (`self`) that references the object in memory. If we want to modify our object's data, we need to specify self as a parameter. So when we call `Human('Bob')`, we set our instance's name to the string `Bob` and create and set the instance variable `is_alive` to true. Here we are encapsulating our instance's name variable with the name being passed from the user. Encapsulation is the process of handling the visibility and accessibility of our class properties. Let's take a closer look.
 
-# Encapsulation
+## Encapsulation
 
 Right now, we have our human and we can reference its internal properties like so:
 `print(bob.name)   # Bob`
@@ -47,7 +47,7 @@ AttributeError: 'Human' object has no attribute '__is_alive'
 Wait, we clearly defined this in our init method. Why are we unable to access it?
 In OOP, there are ways to hide certain data properties from others. Although python does not have an explicit private or public naming standard, there are still [conventions](https://docs.python.org/3/tutorial/classes.html#private-variables) we can follow. By creating a variable with an underscore, we are telling other developers this is non-public. When we initialize our human object with double underscores on our `__is_alive` attribute, python creates a non-public `_Human__is_alive`. This is called name-mangling and is handled internally by python. Because these are just conventions there are still ways we can access or modify these properties, but for our purpose we just need to understand the role this plays in encapsulation. So encapsulation is the implementation of exposing or hiding certain attributes or methods within our class. But how do we decide what we want exposed?
 
-# Abstraction
+## Abstraction
 
 Abstraction is the process of extracting essential information relevant to a purpose while ignoring details not pertinent to that purpose. Most libraries or modules abstract the process of dealing with internal systems and gives us only the relevant information. For example, most shell commands have to communicate with our operating system. When we want to list our directories with `ls`, we do not care _how_ the commands are grabbing the directories and displaying them, we just want the results. Abstraction allows us to provide useful information without exposing the internal logic of a program, it often goes hand-in-hand with encapsulation.
 
@@ -239,7 +239,7 @@ def sprint_right(self):
 	self.__sprint(self.move_right)
 ```
 
-# Conclusion
+## Conclusion
 
 Object-oriented programming offers a powerful paradigm for organizing code, focusing on classes to manage data. Encapsulation, the first key concept, involves controlling access to class properties. In Python, this is achieved through naming conventions and underscores. Recall how we were able to encapsulate the `__is_alive` attribute. On the other hand, abstraction, the second key concept, centers on distilling essential information while hiding implementation details. I hope this article was able to demonstrate how abstraction often complements encapsulation.
 
