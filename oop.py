@@ -10,9 +10,9 @@ class Human:
 
     # This internal method checks if there's enough stmaina for a sprint
     def __raise_if_cannot_sprint(self):
-        if (self.__stamina <= 0):
+        if self.__stamina <= 0:
             raise Exception("not enough stamina to sprint")
-        
+
     # Internal method to decrease stamina by 1
     def __use_sprint_stamina(self):
         self.__stamina -= 1
@@ -26,8 +26,8 @@ class Human:
 
     # This hides the internal logic of how a 'move' operation is performed,
     # and provides a single point of control over the object’s state.
-    # Instead of modifying the positions externally, 
-    # we abstract that logic into an internal method 
+    # Instead of modifying the positions externally,
+    # we abstract that logic into an internal method
     # that the user can call with their object e.g. bob.move_right()
     # Calling this method makes the human 'move right',
     # without the user needing to understand or manage the object's internal details
@@ -60,6 +60,7 @@ class Human:
     def get_position(self):
         print(f"X: {self.__pos_x}\nY: {self.__pos_y}\n")
 
+
 bob = Human(0, 0, 1, 10)
 bob.get_position()
 bob.sprint_right()
@@ -78,7 +79,6 @@ bob.get_position()
 #             return "Dead"
 
 # bob = Human("Bob")
-# print(bob.get_status()) 
+# print(bob.get_status())
 # bob.__is_alive = False
 # print(bob.get_status())
-    
